@@ -1,0 +1,53 @@
+Downloading and installing Jenkins
+STEPS:
+1) Ensure that your software packages are up to date on your instance by uing the following command to perform a quick software update:
+
+        $ sudo yum update -y
+
+2) Add the Jenkins repo using the following command:
+
+        $ sudo wget -O /etc/yum.repos.d/jenkins.repo \
+            https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+3) Import a key file from Jenkins-CI to enable installation from the package:
+
+        $ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+        $ sudo yum upgrade
+
+4) Install Java: as jenkins is built on java - we need to install openjdk11
+
+        $ sudo amazon-linux-extras install java-openjdk11 -y
+
+5) Install Jenkins:
+
+        $ sudo yum install jenkins -y
+
+6) Enable Jenkins service to start at boot:
+
+        $ sudo systemctl enable jenkins
+
+7) Start Jenkins as a service:
+
+        $ sudo systemctl start jenkins
+You can check the status of the Jenkins service using the command:
+
+        $ sudo systemctl status jenkins
+
+
+Configuring Jenkins
+-------------------
+Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
+1) Connect to http://<your_server_public_DNS>:8080 from your browser. You will be able to access Jenkins through its management interface:
+
+2) As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.
+
+Use the following command to display this password:
+
+        $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+        
+3)The Jenkins installation script directs you to the Customize Jenkins page. Click Install suggested plugins.
+
+4) Once the installation is complete, the Create First Admin User will open. Enter your information, and then select Save and Continue.
+
+
+
