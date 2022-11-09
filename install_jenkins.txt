@@ -55,5 +55,6 @@ Create first project
 --------------------
 Get Source code from git : use git pull command
 1) Create new project
-2) add git commands
+2) Add POLL SCM for trigering build
+3) add git commands
 
