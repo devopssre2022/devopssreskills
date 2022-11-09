@@ -1,0 +1,81 @@
+Command Line Instructions: Setting up repo locally
+-------------------------
+$ git config --global user.name "enter_name"
+$ git config --global user.email "enter mail"
+
+Create New Repo:
+---------------
+$ git clone git_url......
+$ cd my_project
+$ touch README.md
+$ git add .
+$ git commit -m "New File Created"
+$ git push -u origin master/main
+
+Push an existing folder:
+---------------------
+cd existing folder
+git init
+git remote add origin git_url.....
+git add .
+git commit -m "Initial Commit"
+git push -u origin master
+
+Push to existing Repo:
+---------------------
+cd existing folder
+git remote rename origin old-origin
+git remote add origin git_url....
+git push -u origin --all
+git push -u origin --tags
+
+
+-----------------------------------------------------------------------------
+
+Git Commands:
+------------
+git clone - clones complete repo to local
+
+git pull  -  pulls all the latest changes to local repo
+
+git fetch  - fetches the changes but wont pull code
+
+got add - to add files fromworking dir to staging area
+
+git status - to check the status of files in working directory
+
+git commit  - to commit changes to local repo
+
+git push - to push the commit to central repo
+
+merge conflicts
+---------------
+$ git pull -r
+
+
+if 2 dev woring on one branch.
+	one person changed file1
+	other person changed file2 and pushed to central repo
+
+	now person 1 cannot push - 
+	the repo is not upto date------
+
+	if you use git pull and then push, there i) first new latest files gets pulled and merge commit is created.
+	ii) Next local commit get pushed
+	so there will be two commits - one is merge and other one is file changes commit
+
+	to avoid we use git rebase:
+					$ git pull -r    => This will pull and pushes the changes in one commit
+
+--------------------------------------
+
+Merge Conflicts : When 2 or more people editing same file in a repo:
+---------------------
+
+when we use git push: there will be an error.
+$git pull -r : Here we get MergeConflicts in file. It cant decide which changes to keep. we need to decide manually.
+
+so to solve this we use $git  
+in ui compare file and save the file.
+
+
